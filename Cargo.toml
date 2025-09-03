@@ -1,0 +1,31 @@
+[package]
+name = "trading-engine"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+async-trait = "0.1.89"
+tokio = { version = "1.47.1", features = ["full"] }
+rand = "0.9.2"
+log = "0.4.27"
+thiserror = "2.0.16"
+chrono = "0.4.41"
+dashmap = "7.0.0-rc2"
+futures = "0.3.31"
+fern = "0.7.1"
+colored = "3.0.0"
+serial_test = "3.2.0"
+tokio-util = "0.7.16"
+anyhow = "1.0.99"
+
+[dev-dependencies]
+criterion = { version = "0.7", features = ["async_tokio"] }
+tokio = { version = "1.47.1", features = ["rt-multi-thread", "macros", "time", "signal"] }
+rand = "0.9.2" # якщо генератор це використовує (скоріш за все)
+
+[[bench]]
+name = "trade_throughput"
+harness = false
+
+[[test]]
+name = "tests"
